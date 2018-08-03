@@ -1,0 +1,45 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Coorg Jungleway</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+<!--===============================================================================================-->  
+    
+<style>
+.center {
+    margin: auto;
+    width: 25%;
+    
+    padding: 10px;
+}
+</style>
+</head>
+<body>
+    <div class="center">  
+        
+            <div class="page-header">
+                <a style="float:right;" href="/resortadmin/checkbookings/"><i class="fas fa-arrow-left"></i>BACK</a>
+                <h2>Bookings Details</h2>
+            </div>
+            <div class="row">
+            
+                <ul class="nav nav-pills nav-stacked">
+                    <li><h4><i class="fas fa-thumbtack"></i><u>{{object.id}} - {{object.email}}</u></h4></li>
+                    <li><p><strong>Room Type:</strong> {{object.room_type}}</p></li>
+                    <li><p><strong>No. of Rooms:</strong> {{object.rooms}}</p></li>
+                    <li><p><strong>No. of Person in each room:</strong> {{object.adults}}</p></li>
+                    <li><p><strong>From:</strong> {{object.datepicker1}}</p></li>
+                    <li><p><strong>To:</strong> {{object.datepicker2}}</p></li>
+                </ul>
+            </div>
+            
+        
+    </div>
+</body>
+</html>

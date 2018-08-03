@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Coorg Jungleway</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+<!--===============================================================================================-->  
+    
+<style>
+.center {
+    margin: auto;
+    width: 25%;
+    
+    padding: 10px;
+}
+</style>
+</head>
+<body>
+    <div class="center">  
+        
+            <div class="page-header">
+                <a style="float:right;" href="/resortadmin/ContactCustomer/"><i class="fas fa-arrow-left"></i>BACK</a>
+                <h2>Contact Me List</h2>
+            </div>
+            <div class="row">
+            
+                <ul class="nav nav-pills nav-stacked">
+                    <li><h4><i class="fas fa-envelope"></i> <u>{{object.Email}}</u></h4></li>
+                    <li><p><strong>Customer Name:</strong> {{object.Name}}</p></li>
+                    <li><p><strong>Message:</strong> {{object.Message}}</p></li>
+                </ul>
+            </div>
+            
+        
+    </div>
+</body>
+</html>

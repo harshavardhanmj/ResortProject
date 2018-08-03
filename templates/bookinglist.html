@@ -1,0 +1,105 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Coorg Jungleway</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+<!--===============================================================================================-->  
+    
+<style>
+.center {
+    margin: auto;
+    width: 25%;
+    
+    padding: 10px;
+}
+<style>
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+</style>
+</head>
+<body>  
+    <div class="container">
+        <div class="page-header">
+            <a style="float:right;" href="/resortadmin/"><i class="fas fa-home"></i>HOME</a>
+            <h2>Bookings</h2>
+        </div>
+        <div class="row">
+        <div class="col-sm-10">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Booking ID.." title="Type in a name">
+        <table id="myTable">
+  <tr class="header">
+    <th style="width:40%;">ID</th>
+    <th style="width:40%;">Country</th>
+    <th style="width:20%;"></th>
+  </tr>
+  {% for obj in object_list %}
+  <tr>
+    <td>{{obj.id}}</td>
+    <td><a href="{{obj.pk}}/"><i class="fas fa-prncil-alt"></i>{{obj.email}}</a></td>
+    <td><a href="/resortadmin/deletebooking/{{obj.pk}}/"><i class="fa fa-trash"></i></a></td>
+  </tr>
+  {% endfor %}
+</table>
+
+        </div>
+        </div>
+        </div>
+    </div>
+    <script>
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+</body>
+</html>

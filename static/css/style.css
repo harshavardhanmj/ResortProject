@@ -2722,9 +2722,10 @@ p.contact-p {
 	padding: 10px 15px;
 	margin-bottom: 20px;
 	outline: none;
-	background-color: #111;
+	border:solid;
+	background-color: #d9e2da;
 	border: none;
-	color: #FFF;
+	color: #000;
 	font-family: 'Montserrat', sans-serif;
 }
 

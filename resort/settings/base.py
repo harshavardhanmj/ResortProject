@@ -25,7 +25,7 @@ SECRET_KEY = '(%m4x1jg_f5^^r)tf#7u!l*5^n*h0*)%kml@ti3udj3md#r-l5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'coorgjungleway@gmail.com' 

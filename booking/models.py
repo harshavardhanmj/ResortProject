@@ -28,9 +28,9 @@ def post_save_booking_receiver(sender, instance, created, *args, **kwargs):
 	if created:
 		subject = 'Coorg Jungleway Booking Confirmation'
 		from_email = settings.DEFAULT_FROM_EMAIL
-		recipient_list = [instance.email]
+		recipient_list = [instance.email, from_email]
 		message = f'Payment Required for confirmation'
-		html_message = f'<h1>Thank You for choosing us</h1><br/><h3>Your Booking ID is {instance.id}</h3>'
+		html_message = f'<h1>Thank You for choosing us</h1><br/><h3>Your Booking ID is {instance.id} and confirmation will be made upon the same by us shortly through call.</h3>'
 		sent_mail= send_mail(
 				subject, 
 				message, 
@@ -39,13 +39,13 @@ def post_save_booking_receiver(sender, instance, created, *args, **kwargs):
 				fail_silently=False, 
 				html_message=html_message)
 		sent_mail = True
-		sms_message = "Coorg Jungleway Booking Confirmation. Payment Required for confirmation. Thank You for choosing us. Your Booking ID is " + str(instance.id)
-		number = "+91" + str(instance.phone_number)
-		config = Configuration()
-		config.username = '89de2a7e-5bed-41a1-bce1-47be10d042891'
-		config.password = '39f9dd68-d96f-4ea1-b80f-74e828b2f9451'
-		api_instance = karix.MessageApi(api_client=ApiClient(configuration=config))
-		message = karix.CreateMessage(source="+919845320802", destination=[number], text=sms_message)
+		# sms_message = "Coorg Jungleway Booking Confirmation. Payment Required for confirmation. Thank You for choosing us. Your Booking ID is " + str(instance.id)
+		# number = "+91" + str(instance.phone_number)
+		# config = Configuration()
+		# config.username = '89de2a7e-5bed-41a1-bce1-47be10d042891'
+		# config.password = '39f9dd68-d96f-4ea1-b80f-74e828b2f9451'
+		# api_instance = karix.MessageApi(api_client=ApiClient(configuration=config))
+		# message = karix.CreateMessage(source="+919845320802", destination=[number], text=sms_message)
 		#api_response = api_instance.send_message(message=message)
 post_save.connect(post_save_booking_receiver, sender=Booking)
 
